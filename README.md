@@ -23,6 +23,15 @@ used _outside_ of IOHK/IOG's framework. If it further helps decentralization,
 even better.
 
 
+A REQUEST FOR HELP
+
+Can somebody please get a hold of Titto Assini's "Flat.pdf" document?
+He (https://github.com/tittoassini) is MIA and his site, where the Plutus
+Specification document references point to the file, is down. (What a
+fisasco... The single Plutus specification document I can find has no author,
+and the references are to a non-responsive site. You sense my frustration..)
+
+
 CONTENTS AND LOG-BOOK
 
 IN 2021/11/19 (initial creation)
