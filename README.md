@@ -29,6 +29,6 @@ IN 2021/11/19 (initial creation)
  - Added a Makefile, a driver (main.c), and the "inp.*" code.
  - Added a ubiquitous version of the "AlwaysSucced" Plutus script file.
  - The framework can read and parse a Plutus script "V1" in JSON format.
- - The non-intuitive step of turning "untyped Plutus" to a printable binary
+ - The non-intuitive step of turning "flat untyped Plutus" to a printable binary
    form is taken when the script file is read.
 
