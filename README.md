@@ -17,19 +17,10 @@ Cardano blockchain, and how they have structured their vision for an open
 value-exchange and "decentralized finance" platform. However, their products
 do not fit my personality. Consequently, I decided to go completely rogue
 and put my hacker-from-the-90s hat on, and do things in a way that they can
-be understood by me and be easily explained to others. In this vane attempt,
+be understood by me and be easily explained to others. In this vein attempt,
 I am trying to break down Plutus, and build a software stack that can be
 used _outside_ of IOHK/IOG's framework. If it further helps decentralization,
 even better.
-
-
-A REQUEST FOR HELP
-
-Can somebody please get a hold of Titto Assini's "Flat.pdf" document?
-He (https://github.com/tittoassini) is MIA and his site, where the Plutus
-Specification document references point to the file, is down. (What a
-fisasco... The single Plutus specification document I can find has no author,
-and the references are to a non-responsive site. You sense my frustration..)
 
 
 CONTENTS AND LOG-BOOK
