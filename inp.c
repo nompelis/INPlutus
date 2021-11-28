@@ -130,7 +130,8 @@ int inPlutus_Script_Read( struct inp_script_s *p, const char filename[] )
 #endif
    for(n=0;n<p->psize;++n) {
 #ifdef _DEBUG_
-      fprintf( stdout, " %6d  \"%.2x\"   ", n, p->prog[n] );
+      fprintf( stdout, " %6d  \"%.2x\"  (byte: %3d)  ",
+               n, p->prog[n], p->prog[n] );
 #endif
       for(m=0;m<8;++m) {
          unsigned char mask,uc;
