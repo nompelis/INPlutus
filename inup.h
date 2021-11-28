@@ -19,17 +19,17 @@ struct inupTerm_variable_s {
 };
 
 struct inupTerm_delay_s {
-   struct inup_term_s* term;
+   struct inupTerm_s* term;
 };
 
 struct inupTerm_lambda_s {
-   struct inupTerm_name_s* name;
-   struct inupTerm_term_s* term;
+   unsigned int name;
+   struct inupTerm_s* term;
 };
 
 struct inupTerm_application_s {
-   struct inupTerm_term_s* term1;
-   struct inupTerm_term_s* term2;
+   struct inupTerm_s* term1;
+   struct inupTerm_s* term2;
 };
 
 struct inupTerm_constant_s {
@@ -37,11 +37,11 @@ struct inupTerm_constant_s {
 };
 
 struct inupTerm_force_s {
-   struct inupTerm_term_s* term;
+   struct inupTerm_s* term;
 };
 
 struct inupTerm_error_s {
-   struct inupTerm_term_s* term;
+   struct inupTerm_s* term;
 };
 
 struct inupTerm_builtin_s {

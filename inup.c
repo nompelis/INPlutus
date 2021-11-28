@@ -39,7 +39,7 @@ void inUPlutus_Term_Init( struct inupTerm_s *p )
     break;
 
     case( LAMBDA_ABSTRACTION ):
-      p->term.lambda_abs.name = NULL;
+      p->term.lambda_abs.name = 0;  // we still do not know what to do here...
       p->term.lambda_abs.term = NULL;
     break;
 
