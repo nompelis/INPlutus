@@ -133,11 +133,11 @@ struct inupConstant_s {
 // Function prototypes
 //
 
-void inUPlutus_Term_Clear( struct inupTerm_s *p );
+void inUPlutus_Term_Init( struct inupTerm_s *p );
 
 struct inupTerm_s* inUPlutus_Term_Factory( enum inupTerm_enum e );
 
-void inUPlutus_Constant_Clear( struct inupConstant_s *p );
+void inUPlutus_Constant_Init( struct inupConstant_s *p );
 
 struct inupConstant_s* inUPlutus_Constant_Factory( enum inupConstant_enum e );
 
