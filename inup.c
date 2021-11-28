@@ -20,7 +20,7 @@
 // in the spirit of how this hsould be programmed.)
 //
 
-void inUPlutus_TermInit_( struct inupTerm_s *p )
+void inUPlutus_Term_Init( struct inupTerm_s *p )
 {
    if( p == NULL ) return;
 
@@ -76,7 +76,7 @@ void inUPlutus_TermInit_( struct inupTerm_s *p )
 // in the spirit of how this hsould be programmed.)
 //
 
-void inUPlutus_ConstantInit_( struct inupConstant_s *p )
+void inUPlutus_Constant_Init( struct inupConstant_s *p )
 {
    if( p == NULL ) return;
 
@@ -135,7 +135,7 @@ struct inupTerm_s* inUPlutus_Term_Factory( enum inupTerm_enum e )
    // set the member indicating what object it is...
    p->type = e;
    // ...an initialize it before returning it
-   inUPlutus_TermInit_( p );
+   inUPlutus_Term_Init( p );
 
    return p;
 }
@@ -163,7 +163,7 @@ struct inupConstant_s* inUPlutus_Constant_Factory( enum inupConstant_enum e )
    // set the member indicating what object it is...
    p->type = e;
    // ...an initialize it before returning it
-   inUPlutus_ConstantInit_( p );
+   inUPlutus_Constant_Init( p );
 
    return p;
 }
