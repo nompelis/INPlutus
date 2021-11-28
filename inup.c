@@ -66,3 +66,49 @@ void inUPlutus_Term_Clear( struct inupTerm_s *p )
    };
 }
 
+
+//
+// Function to clear (or initialize raw) a Plutus "Untyped constant" object.
+// The struct that is referenced should have its member "type" set to the enumerator
+// value that it represents so that the (implied) accessor retrieves a valid type
+// so that the correct member initialization of the union-ed structs is performed.
+// (For what members the structs have right now, this is over-complicated, but it is
+// in the spirit of how this hsould be programmed.)
+//
+
+void inUPlutus_Constant_Clear( struct inupConstant_s *p )
+{
+   if( p == NULL ) return;
+
+#ifdef _DEBUG_
+   fprintf( stdout, " [DEBUG]  Clearing Plutus untyped constant: %d \n",
+            (int) p->type  );
+#endif
+   switch( p->type ) {
+
+    case( INTEGER ):
+      p->constant.integer.i = 0;   // ambiguously set this to zero and hope...
+    break;
+
+    case( BYTESTRING ):
+      p->constant.bytestring.ptr = NULL;
+    break;
+
+    case( STRING ):
+      p->constant.string.ptr = NULL;
+    break;
+
+    case( CHAR ):
+      p->constant.charstring.ptr = NULL;
+    break;
+
+    case( UNIT ):
+      // what did you think would happen here...?
+    break;
+
+    case( BOOL ):
+      p->constant.boolean.bit = 0;     // ambiguously set this to zero
+    break;
+   };
+}
+

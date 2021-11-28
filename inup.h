@@ -74,10 +74,64 @@ struct inupTerm_s {
 
 
 //
+// The Plutus "Untyped constants" as structs with members being pointers to data
+// based on Fig. 24 of the Plutus Core specification. (Similar to "terms".)
+// The struct has two members, the union-ed structs and an enumeration member.
+//
+
+struct inupConstant_Integer_s {
+   unsigned char zz;
+   long int i;
+};
+
+struct inupConstant_ByteString_s {
+   unsigned char* ptr;
+};
+
+struct inupConstant_String_s {
+   char* ptr;
+};
+
+struct inupConstant_Char_s {
+   char* ptr;
+};
+
+struct inupConstant_Empty_s {
+   // This is, literally, empty!
+};
+
+struct inupConstant_Bool_s {
+   unsigned char bit;
+};
+
+
+struct inupConstant_s {
+   union {
+      struct inupConstant_Integer_s    integer;
+      struct inupConstant_ByteString_s bytestring;
+      struct inupConstant_String_s     string;
+      struct inupConstant_Char_s       charstring;
+      struct inupConstant_Empty_s      empty;
+      struct inupConstant_Bool_s       boolean;
+   } constant;
+   enum inupConstant_enum {
+      INTEGER,
+      BYTESTRING,
+      STRING,
+      CHAR,
+      UNIT,
+      BOOL
+   } type;
+};
+
+
+//
 // Function prototypes
 //
 
 void inUPlutus_Term_Clear( struct inupTerm_s *p );
+
+void inUPlutus_Constant_Clear( struct inupConstant_s *p );
 
 #endif
 
