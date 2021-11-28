@@ -25,7 +25,7 @@ void inUPlutus_Term_Init( struct inupTerm_s *p )
    if( p == NULL ) return;
 
 #ifdef _DEBUG_
-   fprintf( stdout, " [DEBUG]  Clearing Plutus untyped term: %d \n", (int) p->type );
+   fprintf( stdout, " [DEBUG]  Init. Plutus untyped term: %d \n", (int) p->type );
 #endif
    switch( p->type ) {
 
@@ -81,7 +81,7 @@ void inUPlutus_Constant_Init( struct inupConstant_s *p )
    if( p == NULL ) return;
 
 #ifdef _DEBUG_
-   fprintf( stdout, " [DEBUG]  Clearing Plutus untyped constant: %d \n",
+   fprintf( stdout, " [DEBUG]  Init. Plutus untyped constant: %d \n",
             (int) p->type  );
 #endif
    switch( p->type ) {
@@ -111,6 +111,36 @@ void inUPlutus_Constant_Init( struct inupConstant_s *p )
     break;
    };
 }
+
+
+void inUPlutus_Constant_Clear( struct inupConstant_s *p )
+{
+#ifdef _DEBUG_
+   fprintf( stdout, " [DEBUG]  Clearing Plutus untyped constant: %d \n",
+            (int) p->type  );
+#endif
+   switch( p->type ) {
+    case( BYTESTRING ):
+      if( p->constant.bytestring.ptr != NULL )
+         free( p->constant.bytestring.ptr );
+    break;
+
+    case( STRING ):
+      if( p->constant.string.ptr != NULL )
+         free( p->constant.string.ptr );
+    break;
+
+    case( CHAR ):
+      if( p->constant.charstring.ptr != NULL )
+         free( p->constant.charstring.ptr );
+    break;
+
+    default:
+    break;
+   };
+
+   inUPlutus_Constant_Init( p );
+} 
 
 
 struct inupTerm_s* inUPlutus_Term_Factory( enum inupTerm_enum e )
