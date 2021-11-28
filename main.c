@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "inp.h"
+#include "inup.h"
 
 
 int main( int argc, char *argv[] )
