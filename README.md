@@ -27,8 +27,14 @@ CONTENTS AND LOG-BOOK
 
 IN 2021/11/19 (initial creation)
  - Added a Makefile, a driver (main.c), and the "inp.*" code.
- - Added a ubiquitous version of the "AlwaysSucced" Plutus script file.
+ - Added a ubiquitous version of the "AlwaysSucceed" Plutus script file.
  - The framework can read and parse a Plutus script "V1" in JSON format.
  - The non-intuitive step of turning "flat untyped Plutus" to a printable binary
    form is taken when the script file is read.
+
+IN 2021/11/28
+ - Implemented structs for untyped Plutus "Term" and "Constant" objects.
+ - The objects are made with unions so that object oriented paradigm can be used.
+ - Factories for constructing Term/Constant objects were implemented.
+ - the target "demo" was added to the Makefile to test this implementation.
 
