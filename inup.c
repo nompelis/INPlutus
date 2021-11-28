@@ -112,3 +112,59 @@ void inUPlutus_Constant_Clear( struct inupConstant_s *p )
    };
 }
 
+
+struct inupTerm_s* inUPlutus_Term_Factory( enum inupTerm_enum e )
+{
+   static long int num = 0, num_max = 0;
+   static struct inupTerm_s* set = NULL;
+
+   struct inupTerm_s* p = NULL;
+
+   // allocate more objects if we have used all of them in the array
+   if( num == num_max ) {
+      size_t isize = sizeof( struct inupTerm_s );
+      num_max += 10;
+      p = (struct inupTerm_s *) realloc( set, isize*((size_t) num_max) );
+      if( p == NULL ) return NULL;
+      set = p;
+   }
+
+   // pick the pointer of the last and increment count
+   p = &( set[ num++ ] );
+
+   // set the member indicating what object it is...
+   p->type = e;
+   // ...an initialize it before returning it
+   inUPlutus_Term_Clear( p );
+
+   return p;
+}
+
+
+struct inupConstant_s* inUPlutus_Constant_Factory( enum inupConstant_enum e )
+{
+   static long int num = 0, num_max = 0;
+   static struct inupConstant_s* set = NULL;
+
+   struct inupConstant_s* p = NULL;
+
+   // allocate more objects if we have used all of them in the array
+   if( num == num_max ) {
+      size_t isize = sizeof( struct inupConstant_s );
+      num_max += 10;
+      p = (struct inupConstant_s *) realloc( set, isize*((size_t) num_max) );
+      if( p == NULL ) return NULL;
+      set = p;
+   }
+
+   // pick the pointer of the last and increment count
+   p = &( set[ num++ ] );
+
+   // set the member indicating what object it is...
+   p->type = e;
+   // ...an initialize it before returning it
+   inUPlutus_Constant_Clear( p );
+
+   return p;
+}
+

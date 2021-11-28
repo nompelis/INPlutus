@@ -49,6 +49,17 @@ struct inupTerm_builtin_s {
 };
 
 
+enum inupTerm_enum {
+   VARIABLE,
+   DELAY,
+   LAMBDA_ABSTRACTION,
+   APPLICATION,
+   CONSTANT,
+   FORCE,
+   ERROR,
+   BUILTIN
+};
+
 struct inupTerm_s {
    union {
       struct inupTerm_variable_s    variable;
@@ -60,16 +71,7 @@ struct inupTerm_s {
       struct inupTerm_error_s       error;
       struct inupTerm_builtin_s     builtin;
    } term;
-   enum inupTerm_enum {
-      VARIABLE,
-      DELAY,
-      LAMBDA_ABSTRACTION,
-      APPLICATION,
-      CONSTANT,
-      FORCE,
-      ERROR,
-      BUILTIN
-   } type;
+   enum inupTerm_enum type;
 };
 
 
@@ -105,6 +107,15 @@ struct inupConstant_Bool_s {
 };
 
 
+enum inupConstant_enum {
+   INTEGER,
+   BYTESTRING,
+   STRING,
+   CHAR,
+   UNIT,
+   BOOL
+};
+
 struct inupConstant_s {
    union {
       struct inupConstant_Integer_s    integer;
@@ -114,14 +125,7 @@ struct inupConstant_s {
       struct inupConstant_Empty_s      empty;
       struct inupConstant_Bool_s       boolean;
    } constant;
-   enum inupConstant_enum {
-      INTEGER,
-      BYTESTRING,
-      STRING,
-      CHAR,
-      UNIT,
-      BOOL
-   } type;
+   enum inupConstant_enum type;
 };
 
 
@@ -131,7 +135,11 @@ struct inupConstant_s {
 
 void inUPlutus_Term_Clear( struct inupTerm_s *p );
 
+struct inupTerm_s* inUPlutus_Term_Factory( enum inupTerm_enum e );
+
 void inUPlutus_Constant_Clear( struct inupConstant_s *p );
+
+struct inupConstant_s* inUPlutus_Constant_Factory( enum inupConstant_enum e );
 
 #endif
 
